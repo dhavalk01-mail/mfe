@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "6656ca9e-7365-45d9-9e17-80227b5aecbd",
+		"name": "MFE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4913823"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Mark\",\r\n    \"email\": \"mark@gmail.com\",\r\n    \"password\": \"123456789\",\r\n    \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_local_url}}/api/signup",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"email\": \"mark@gmail.com\",\r\n    // \"password\": \"123456789\"\r\n    \"email\": \"joel@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_local_url}}/api/login",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRoYXZhbGswMUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MTIxMjk5NTF9.ZgZrSPRDBYG2G6PfY9SwkZgDceG21iEWc29joGZw7mI",
+								"description": "admin token",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"description": "agent token",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGZlNmFmNGM5NTYxNmZmM2I5MzNiYiIsImVtYWlsIjoibWFya0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTcxMjY2MzAzMSwiZXhwIjoxNzEyNzQ5NDMxfQ.r-M2mXKv6pksnqCmQ6qncVyePkvhmM5goFolCDORWbQ",
+								"description": "User token",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_local_url}}/api/user",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userdetail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGZlNmFmNGM5NTYxNmZmM2I5MzNiYiIsImVtYWlsIjoibWFya0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTcxMjY2MzAzMSwiZXhwIjoxNzEyNzQ5NDMxfQ.r-M2mXKv6pksnqCmQ6qncVyePkvhmM5goFolCDORWbQ",
+								"description": "user token",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"description": "agent token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobileNumber\": \"982398293\",\r\n    \"birthYear\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_local_url}}/api/userdetail",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"userdetail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Start New Chat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGZlNmFmNGM5NTYxNmZmM2I5MzNiYiIsImVtYWlsIjoibWFya0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTcxMjY2MzAzMSwiZXhwIjoxNzEyNzQ5NDMxfQ.r-M2mXKv6pksnqCmQ6qncVyePkvhmM5goFolCDORWbQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"Hello again\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_local_url}}/api/chat",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Message from User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGZlNmFmNGM5NTYxNmZmM2I5MzNiYiIsImVtYWlsIjoibWFya0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTcxMjY2MzAzMSwiZXhwIjoxNzEyNzQ5NDMxfQ.r-M2mXKv6pksnqCmQ6qncVyePkvhmM5goFolCDORWbQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"Another message from user mark@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_local_url}}/api/chat/:chatId/message",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								":chatId",
+								"message"
+							],
+							"variable": [
+								{
+									"key": "chatId",
+									"value": "66162c364cff395becadba36",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Message from Agent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"Another message from AGENT joel@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_local_url}}/api/chat/:chatId/message",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								":chatId",
+								"message"
+							],
+							"variable": [
+								{
+									"key": "chatId",
+									"value": "66162c364cff395becadba36",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chat",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_local_url}}/api/chat/:chatId",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								":chatId"
+							],
+							"variable": [
+								{
+									"key": "chatId",
+									"value": "66167179aadfbaa4f56a0fa5",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Chat",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_local_url}}/api/chat/:chatId/accept",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								":chatId",
+								"accept"
+							],
+							"variable": [
+								{
+									"key": "chatId",
+									"value": "66167179aadfbaa4f56a0fa5",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "End Chat",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_local_url}}/api/chat/:chatId/end",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								":chatId",
+								"end"
+							],
+							"variable": [
+								{
+									"key": "chatId",
+									"value": "66162c364cff395becadba36",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pool Chat",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_local_url}}/api/chat/pool",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								"pool"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agent Active Chats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MGQ0M2QwYWUyYjZiZGE1YWI3NzU2MCIsImVtYWlsIjoiam9lbEBnbWFpbC5jb20iLCJyb2xlIjoiQUdFTlQiLCJpYXQiOjE3MTI3MzIwOTQsImV4cCI6MTcxMjgxODQ5NH0.NkBB98z26knIzsFK_Pd41cNreaa_W-YguZru8hFBVlw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_local_url}}/api/chat/agent",
+							"host": [
+								"{{base_local_url}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								"agent"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API status check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_local_url}}/api",
+					"host": [
+						"{{base_local_url}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

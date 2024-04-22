@@ -1,0 +1,42 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table User {
+  id integer [primary key]
+  username string
+  email string
+  password string
+  role enum [note: "ADMIN, USER, AGENT"]
+  is_active boolean
+  timestamp timestamp
+}
+
+Table UserDetail {
+  id integer [primary key]
+  userId integer
+  mobileNumber string
+  birthYear number
+  interstedIn array
+  timestamp timestamp
+}
+
+Table ChatSession {
+  id integer [primary key]
+  userId integer
+  agentId integer.null
+  startTime date.now
+  endTime date.null
+  status enum [note: "POOL", "ACTIVE, CLOSED"]
+}
+
+Table Message {
+  id integer [primary key]
+  sessionId integer
+  senderId integer
+  messageContent string
+}
+
+Ref: User.id - UserDetail.userId
+Ref: User.id < ChatSession.userId
+Ref: User.id < ChatSession.agentId
+Ref: ChatSession.id < Message.sessionId

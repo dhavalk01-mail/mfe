@@ -1,0 +1,411 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "MEF Chat API",
+        "description": "API endpoints for a chat services documented on swagger",
+        "contact": {
+            "name": "Dhaval Koradiya",
+            "email": "dhaval.koradiya@tcs.com"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "securityDefinitions": {
+        "apiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/api": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "description": "API status check",
+                "operationId": "apiStatusCheck",
+                "summary": "API status check"
+            }
+        },
+        "/api/chat": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "example": "Hello again",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Chat"
+                ],
+                "description": "Start New Chat",
+                "operationId": "startNewChat",
+                "summary": "Start New Chat",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/chat/agent": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Chat"
+                ],
+                "description": "Agent Active Chats",
+                "operationId": "agentActiveChats",
+                "summary": "Agent Active Chats",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/chat/pool": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Chat"
+                ],
+                "description": "Pool Chat",
+                "operationId": "poolChat",
+                "summary": "Pool Chat",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/chat/{chatId}": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "name": "chatId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Chat"
+                ],
+                "description": "Chat",
+                "operationId": "chat",
+                "summary": "Chat",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/chat/{chatId}/accept": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "name": "chatId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Chat"
+                ],
+                "description": "Accept Chat",
+                "operationId": "acceptChat",
+                "summary": "Accept Chat",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/chat/{chatId}/end": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "name": "chatId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Chat"
+                ],
+                "description": "End Chat",
+                "operationId": "endChat",
+                "summary": "End Chat",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/chat/{chatId}/message": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "name": "chatId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "example": "Another message from AGENT joel@gmail.com",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Chat"
+                ],
+                "description": "Send Message from Agent",
+                "operationId": "sendMessageFromAgent",
+                "summary": "Send Message from Agent",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "email": {
+                                    "example": "mark@gmail.com",
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "example": "123456789",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ],
+                "description": "login",
+                "operationId": "login",
+                "summary": "login"
+            }
+        },
+        "/api/signup": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "email": {
+                                    "example": "mark@gmail.com",
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "example": "123456789",
+                                    "type": "string"
+                                },
+                                "role": {
+                                    "example": "USER",
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "example": "Mark",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ],
+                "description": "Signup",
+                "operationId": "signup",
+                "summary": "Signup"
+            }
+        },
+        "/api/user": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "description": "user",
+                "operationId": "user",
+                "summary": "user",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/userdetail": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "birthYear": {
+                                    "example": null,
+                                    "x-nullable": true
+                                },
+                                "mobileNumber": {
+                                    "example": "982398293",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "User"
+                ],
+                "description": "userdetail",
+                "operationId": "userdetail",
+                "summary": "userdetail",
+                "security": [
+                    {
+                        "apiKeyAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth"
+        },
+        {
+            "name": "User"
+        },
+        {
+            "name": "Chat"
+        }
+    ]
+}

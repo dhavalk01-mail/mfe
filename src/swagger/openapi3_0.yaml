@@ -1,0 +1,268 @@
+openapi: 3.0.1
+info:
+  title: MEF Chat API
+  description: API endpoints for a chat services documented on swagger
+  contact:
+    name: Dhaval Koradiya
+    email: dhaval.koradiya@tcs.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/
+tags:
+  - name: Auth
+  - name: User
+  - name: Chat
+paths:
+  /api:
+    get:
+      summary: API status check
+      description: API status check
+      operationId: apiStatusCheck
+      responses:
+        '200':
+          description: ''
+          content: {}
+  /api/chat:
+    post:
+      tags:
+        - Chat
+      summary: Start New Chat
+      description: Start New Chat
+      operationId: startNewChat
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Hello again
+        required: false
+      responses:
+        '200':
+          description: ''
+          content: {}
+        '404':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+      x-codegen-request-body-name: body
+  /api/chat/agent:
+    get:
+      tags:
+        - Chat
+      summary: Agent Active Chats
+      description: Agent Active Chats
+      operationId: agentActiveChats
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+  /api/chat/pool:
+    get:
+      tags:
+        - Chat
+      summary: Pool Chat
+      description: Pool Chat
+      operationId: poolChat
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+  /api/chat/{chatId}:
+    get:
+      tags:
+        - Chat
+      summary: Chat
+      description: Chat
+      operationId: chat
+      parameters:
+        - name: chatId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+  /api/chat/{chatId}/accept:
+    put:
+      tags:
+        - Chat
+      summary: Accept Chat
+      description: Accept Chat
+      operationId: acceptChat
+      parameters:
+        - name: chatId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+  /api/chat/{chatId}/end:
+    put:
+      tags:
+        - Chat
+      summary: End Chat
+      description: End Chat
+      operationId: endChat
+      parameters:
+        - name: chatId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+  /api/chat/{chatId}/message:
+    post:
+      tags:
+        - Chat
+      summary: Send Message from Agent
+      description: Send Message from Agent
+      operationId: sendMessageFromAgent
+      parameters:
+        - name: chatId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Another message from AGENT joel@gmail.com
+        required: false
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+      x-codegen-request-body-name: body
+  /api/login:
+    post:
+      tags:
+        - Auth
+      summary: login
+      description: login
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mark@gmail.com
+                password:
+                  type: string
+                  example: '123456789'
+        required: false
+      responses:
+        '200':
+          description: ''
+          content: {}
+      x-codegen-request-body-name: body
+  /api/signup:
+    post:
+      tags:
+        - Auth
+      summary: Signup
+      description: Signup
+      operationId: signup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: mark@gmail.com
+                password:
+                  type: string
+                  example: '123456789'
+                role:
+                  type: string
+                  example: USER
+                username:
+                  type: string
+                  example: Mark
+        required: false
+      responses:
+        '200':
+          description: ''
+          content: {}
+      x-codegen-request-body-name: body
+  /api/user:
+    get:
+      tags:
+        - User
+      summary: user
+      description: user
+      operationId: user
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+  /api/userdetail:
+    post:
+      tags:
+        - User
+      summary: userdetail
+      description: userdetail
+      operationId: userdetail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                birthYear:
+                  type: object
+                  nullable: true
+                  example: 'null'
+                mobileNumber:
+                  type: string
+                  example: '982398293'
+        required: false
+      responses:
+        '200':
+          description: ''
+          content: {}
+      security:
+        - apiKeyAuth: []
+      x-codegen-request-body-name: body
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'
