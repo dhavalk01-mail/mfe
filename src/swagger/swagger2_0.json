@@ -3,10 +3,7 @@
     "info": {
         "title": "MEF Chat API",
         "description": "API endpoints for a chat services documented on swagger",
-        "contact": {
-            "name": "Dhaval Koradiya",
-            "email": "dhaval.koradiya@tcs.com"
-        },
+        "contact": {},
         "version": "1.0.0"
     },
     "host": "localhost:8080",
@@ -241,9 +238,9 @@
                 "tags": [
                     "Chat"
                 ],
-                "description": "Send Message from Agent",
-                "operationId": "sendMessageFromAgent",
-                "summary": "Send Message from Agent",
+                "summary": "Send Messages",
+                "description": "Send Messages",
+                "operationId": "sendMessage",
                 "security": [
                     {
                         "apiKeyAuth": []
