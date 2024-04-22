@@ -3,10 +3,7 @@
   "info": {
     "title": "MEF Chat API",
     "description": "API endpoints for a chat services documented on swagger",
-    "contact": {
-      "name": "Dhaval Koradiya",
-      "email": "dhaval.koradiya@tcs.com"
-    },
+    "contact": {},
     "version": "1.0.0"
   },
   "servers": [
