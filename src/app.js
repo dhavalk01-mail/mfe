@@ -1,5 +1,5 @@
 require('dotenv').config();
-// const cors = require('cors');
+const cors = require('cors');
 require('./db/db');
 const express = require('express');
 // const bodyParser = require('body-parser');
@@ -12,8 +12,9 @@ const swaggerDocs =  require('./swagger/openapi3_0.json');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+
 // Allow request from any source. In real production, this should be limited to allowed origins only
-// app.use(cors());
+app.use(cors());
 
 //MIDDLEWARE
 app.use(express.json({ limit: "10MB" }));
